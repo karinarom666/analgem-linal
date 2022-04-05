@@ -1,0 +1,31 @@
+print('The matrix')
+A = [list(map(float, input().split())) for i in range(3)]
+m = len(A[0])
+
+
+for i in range(len(A)):
+    if m != 3 or m != len(A[i]):
+        print('incorrect')
+        exit(0)
+
+
+b = A[0][0] + A[1][1] + A[2][2]
+
+
+c = A[0][2] * A[2][0] + A[1][2] * A[2][1] + A[0][1] * A[1][0] - A[0][0] * A[1][1] - A[0][0] * A[2][2] - A[1][1] * A[2][
+    2]
+
+
+d = A[0][0] * A[1][1] * A[2][2] + A[0][1] * A[1][2] * A[2][0] + A[0][2] * A[1][0] * A[2][1] - A[0][2] * A[1][1] * A[2][
+    0] - A[0][0] * A[1][2] * A[2][1] - A[0][1] * A[1][0] * A[2][2]
+
+K = [b, c, d]
+
+if b.is_integer():
+    b = int(b)
+if c.is_integer():
+    c = int(c)
+if d.is_integer():
+    d = int(d)
+
+print('answer is: -xxx + (', b, ') xx + (', c, ') x + (', d, ')')
